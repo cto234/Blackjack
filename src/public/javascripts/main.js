@@ -86,6 +86,9 @@ function elt(type) {                                //For creating elements more
 
 function main(){
 
+    let gamesPlayed = 0;
+    let gamesWon = 0;
+
     const btn = document.querySelector('.playBtn');
     btn.addEventListener('click', function(evt) {
         evt.preventDefault();
@@ -98,6 +101,17 @@ function main(){
     });
 
     function startGame(){
+
+        const played = elt('h3', 'Games Played: '+gamesPlayed);
+        played.setAttribute('id', 'played')
+        const won = elt('h3', 'Games Won: '+gamesWon)
+        /*
+        document.body.appendChild(played);
+        document.body.appendChild(won);
+        */
+       const score = elt('div', played, won);
+       score.setAttribute('id', 'box')
+       document.body.appendChild(score);
 
         const deck = new Deck();         //create a deck of cards
         deck.shuffle();                  //and shuffle
@@ -176,6 +190,7 @@ function main(){
         function update(){
 
             document.body.innerHTML = '';
+            document.body.appendChild(score);
 
             //---------CPU----------
             let cpuUpdate = elt('h2', 'CPU Hand - total: ? ', elt('ol'));  //only displaying first card
@@ -225,6 +240,7 @@ function main(){
 
             //clear the screen
             document.body.innerHTML = '';
+            document.body.appendChild(score);
 
             //display all cards and score
             let cpuDone = elt('ol');
@@ -241,9 +257,12 @@ function main(){
             document.body.appendChild(elt('h2', 'Your Score: ', JSON.stringify(playerScore)));
             document.body.appendChild(playerDone);
 
+            let won = false;
+
             let gameOverText;
             if(cpuScore>21){
                 gameOverText = 'CPU busts! You win! :D';
+                won = true;
             }
             else if(playerScore>21){
                 gameOverText = 'You bust! CPU wins. :(';
@@ -253,6 +272,7 @@ function main(){
             }
             else if(playerScore>cpuScore){
                 gameOverText = "You win! :D";
+                won = true;
             }
             else{
                 gameOverText = "Tie! :|";
@@ -265,6 +285,10 @@ function main(){
             //restart game
             restartBtn.addEventListener('click', function(evt){
                 document.body.innerHTML = '';
+                gamesPlayed++;
+                if(won){
+                    gamesWon++;
+                }
                 startGame();
             })
         }

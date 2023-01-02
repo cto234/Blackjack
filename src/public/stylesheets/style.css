@@ -98,7 +98,11 @@ label{
 }
 
 h3{
-    display: block;
-    float: right;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    right: 5px;
+}
 
+#played{
+    top: 10px;
 }
