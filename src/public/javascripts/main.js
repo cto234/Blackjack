@@ -261,17 +261,17 @@ function main(){
 
             let gameOverText;
             if(cpuScore>21){
-                gameOverText = 'CPU busts! You win! :D';
+                gameOverText = 'CPU busts! \nYou win!';
                 won = true;
             }
             else if(playerScore>21){
-                gameOverText = 'You bust! CPU wins. :(';
+                gameOverText = 'You bust! \nCPU wins.';
             }
             else if(cpuScore>playerScore){
-                gameOverText = 'CPU wins. :(';
+                gameOverText = 'CPU wins.';
             }
             else if(playerScore>cpuScore){
-                gameOverText = "You win! :D";
+                gameOverText = "You win!";
                 won = true;
             }
             else{
