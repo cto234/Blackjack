@@ -261,11 +261,11 @@ function main(){
 
             let gameOverText;
             if(cpuScore>21){
-                gameOverText = 'CPU busts! \nYou win!';
+                gameOverText = 'CPU busts. You win!';
                 won = true;
             }
             else if(playerScore>21){
-                gameOverText = 'You bust! \nCPU wins.';
+                gameOverText = 'You bust. CPU wins.';
             }
             else if(cpuScore>playerScore){
                 gameOverText = 'CPU wins.';
@@ -275,7 +275,7 @@ function main(){
                 won = true;
             }
             else{
-                gameOverText = "Tie! :|";
+                gameOverText = "Tie.";
             }
             const gameOverScreen = elt('h1', gameOverText);
             const restartBtn = elt('button', 'Play Again');

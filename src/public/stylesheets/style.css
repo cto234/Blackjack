@@ -1,5 +1,5 @@
 ol{
-    padding-left: 0pt;
+    padding-left: 20px;
 }
 
 li{
@@ -100,7 +100,8 @@ label{
 h3{
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
-    right: 5px;
+    font-size: 25px;
+    right: 5%;
 }
 
 #played{
